@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.principal {
+  margin: 20px;
+}
+
+.link-carousel {
+  text-decoration: underline;
+  color: white;
+}
+
+@media (max-width: 500px) {
+.modal-content {
+  font-size: 7.5px;
+ }
+}
+
+@media (min-width: 500px) and (max-width:1040px) {
+  .modal-content {
+    font-size: 9px;
+  }
+}
+
+@media (min-width: 1040px) {
+  .modal-content {
+    font-size: 12px;
+  }
+}
+
+
