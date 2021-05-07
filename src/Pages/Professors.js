@@ -10,7 +10,7 @@ import BorraProfe from './../Components/BorraProfe';
 import { getProfesores, getClases } from '../Crud';
 
 
-function Profesors() {
+function Profesors(props) {
 
 const [ llista, setLlista ] = useState([]);
 const [ clases, setClases ] = useState([]);
@@ -51,6 +51,17 @@ function handleShowBorra(e) {
     setShowBorra(!showBorra)
 }
 
+
+ function claseProfe (idClaseProfe) {
+    const clase =  clases.find(el => el.idClase === idClaseProfe);
+    if (clase) {
+        return clase.Nom
+    } else {
+        return ""
+    }
+}
+
+
 function handleShowAdd () {
     setShowAdd(!showAdd)
 }
@@ -68,6 +79,7 @@ function handleShowAdd () {
                 <th>Telèfon</th>
                 <th>Data Naixement</th>
                 <th>Correu electrònic</th>
+                <th>Classe</th>
             </tr>
         </thead>
         {llista.map((prof) => {
@@ -81,6 +93,7 @@ function handleShowAdd () {
                 <td>{prof.Telefon}</td>
                 <td>{canviarData(prof.DataNaixement)}</td>
                 <td>{prof.CorreuElectronic}</td>
+                <td>{claseProfe(prof.clase_idClase)}</td>
                 <td><Button color="primary" value={prof.idProfesor} onClick={(e) => editaProfe (e)}>Edita</Button></td>
                 <td><Button color="danger" value={prof.idProfesor} onClick={(e) => handleShowBorra(e)}>Borra</Button></td>   
             </tr>

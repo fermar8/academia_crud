@@ -8,7 +8,9 @@ import Clases from './Pages/Clases';
 import Navegacion from './Components/Navbar';
 
 
+
 function App() {
+
   return (
     <BrowserRouter>
     <Navegacion />

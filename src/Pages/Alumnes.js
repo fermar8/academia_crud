@@ -51,6 +51,15 @@ function handleShowBorra(e) {
     setShowBorra(!showBorra)
 }
 
+function claseAlumne (idClaseAlumne) {
+    const clase =  clases.find(el => el.idClase === idClaseAlumne);
+    if (clase) {
+        return clase.Nom
+    } else {
+        return ""
+    }
+}
+
 function handleShowAdd () {
     setShowAdd(!showAdd)
 }
@@ -68,6 +77,7 @@ function handleShowAdd () {
                 <th>Telèfon</th>
                 <th>Data Naixement</th>
                 <th>Correu electrònic</th>
+                <th>Classe</th>
             </tr>
         </thead>
         {llista.map((al) => {
@@ -81,6 +91,7 @@ function handleShowAdd () {
                 <td>{al.Telefon}</td>
                 <td>{canviarData(al.DataNaixement)}</td>
                 <td>{al.CorreuElectronic}</td>
+                <td>{claseAlumne(al.clase_idClase)}</td>
                 <td><Button color="primary" value={al.idAlumno} onClick={(e) => editaAlumno (e)}>Edita</Button></td>
                 <td><Button color="danger" value={al.idAlumno} onClick={(e) => handleShowBorra(e)}>Borra</Button></td>   
             </tr>
